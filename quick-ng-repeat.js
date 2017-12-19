@@ -3,7 +3,7 @@ angular.module('QuickList', []);
 angular.module('QuickList').value('quickRepeatList', {});
 
 angular.module('QuickList').directive('quickNgRepeat',
-['$parse', '$animate', '$rootScope', 'quickRepeatList', function($parse, $animate, $rootScope, quick_repeat_list) {
+['$parse', '$animate', '$rootScope', 'quickRepeatList', function($parse, $animate, $rootScope, quickRepeatList) {
   var NG_REMOVED = '$$NG_REMOVED';
   var ngRepeatMinErr = 'err';
   var uid = ['0', '0', '0'];
@@ -131,7 +131,7 @@ angular.module('QuickList').directive('quickNgRepeat',
         var list_name = $attr.quickRepeatList || list_id();
 
         //watch props
-        $scope.$watch(rhs, quick_repeat_list[list_name] = function(collection){
+        $scope.$watch(rhs, quickRepeatList[list_name] = function(collection){
           var index, length,
               previousNode = $element[0],     // current position of the node
               nextNode,
